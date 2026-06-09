@@ -36,42 +36,48 @@ export default function FAQSection() {
   }
 
   return (
-    <section id="faq" className="bg-[#F5EDE0] py-24 lg:py-32">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section id="faq" className="relative bg-[#F5EDE0] py-24 lg:py-32 overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-50" />
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:self-start">
-            <p className="text-xs tracking-widest uppercase font-medium font-body text-charcoal/50 mb-6">
-              FAQ
-            </p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-terracotta/10 border border-terracotta/20 mb-6 backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-terracotta" />
+              <p className="text-xs tracking-widest uppercase font-medium font-body text-terracotta">
+                FAQ
+              </p>
+            </div>
             <h2 className="font-heading text-4xl lg:text-5xl font-semibold leading-tight text-charcoal mb-6">
-              Questions <span className="italic text-terracotta">Answered</span>
+              Questions <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-terracotta to-terracotta-light">Answered</span>
             </h2>
-            <p className="font-body text-base lg:text-lg text-charcoal/60 leading-relaxed">
+            <p className="font-body text-base lg:text-lg text-charcoal/50 leading-relaxed">
               Transparency matters. Here are the most common questions about this platform and how
               your feedback is used.
             </p>
           </div>
 
-          <div role="list" className="space-y-3">
+          <div role="list" className="space-y-4">
             {FAQS.map((faq, idx) => {
               const isOpen = openIndex === idx
               return (
                 <div
                   key={idx}
                   role="listitem"
-                  className="bg-alabaster rounded-xl border border-[#E8E0D5] overflow-hidden"
+                  className="bg-white rounded-xl border border-terracotta/10 overflow-hidden hover:shadow-md hover:border-terracotta/20 transition-all duration-200"
                 >
                   <button
                     onClick={() => toggle(idx)}
-                    className="w-full flex items-center justify-between gap-4 p-5 text-left font-body font-medium text-charcoal/80 hover:text-terracotta transition-colors duration-200"
+                    className={`w-full flex items-center justify-between gap-4 p-5 text-left font-body font-medium transition-colors duration-200 ${
+                      isOpen ? 'text-terracotta' : 'text-charcoal/70 hover:text-terracotta'
+                    }`}
                     aria-expanded={isOpen}
                   >
-                    <span className={`text-sm lg:text-base leading-snug ${isOpen ? 'text-terracotta' : ''}`}>
+                    <span className="text-sm lg:text-base leading-snug font-medium">
                       {faq.q}
                     </span>
                     <span
-                      className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
-                        isOpen ? 'bg-terracotta text-white' : 'bg-charcoal/5 text-charcoal/40'
+                      className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+                        isOpen ? 'bg-gradient-to-br from-terracotta to-terracotta-dark text-white shadow-md shadow-terracotta/25' : 'bg-terracotta/10 text-terracotta'
                       }`}
                     >
                       {isOpen ? <Minus size={16} /> : <Plus size={16} />}
@@ -80,6 +86,7 @@ export default function FAQSection() {
                   <div className={`accordion-content ${isOpen ? 'open' : ''}`}>
                     <div>
                       <div className="px-5 pb-5">
+                        <div className="w-8 h-0.5 rounded-full bg-gradient-to-r from-terracotta to-terracotta-light mb-3" />
                         <p className="font-body text-sm text-charcoal/60 leading-relaxed">
                           {faq.a}
                         </p>

@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://hemanathan4students.com/sitemap.xml
+Sitemap: https://hemanathansv.github.io/Hemanathan-SV-Portal/sitemap.xml

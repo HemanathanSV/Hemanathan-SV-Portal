@@ -17,10 +17,10 @@ export default function StickyMobileCTA() {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
-      <div className="relative bg-alabaster/95 backdrop-blur-md border-t border-terracotta/20 px-4 py-3 shadow-xl">
+      <div className="relative bg-white/95 backdrop-blur-xl border-t border-terracotta/20 px-4 py-3 shadow-2xl shadow-black/10">
         <button
           onClick={() => setDismissed(true)}
-          className="absolute top-2 right-2 p-1 text-charcoal/40 hover:text-charcoal transition-colors"
+          className="absolute top-2 right-2 p-1 text-charcoal/30 hover:text-charcoal transition-colors"
           aria-label="Dismiss"
         >
           <X size={16} />
@@ -29,9 +29,9 @@ export default function StickyMobileCTA() {
           href={FORM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full text-center rounded-full bg-terracotta text-white font-body font-bold text-base min-h-[52px] flex items-center justify-center gap-2 px-6 shadow-xl shadow-terracotta/25 hover:bg-terracotta-dark transition-all duration-200 cta-glow"
+          className="block w-full text-center rounded-full bg-gradient-to-r from-terracotta to-terracotta-dark text-white font-body font-bold text-base min-h-[52px] flex items-center justify-center gap-2 px-6 shadow-xl shadow-terracotta/30 hover:shadow-terracotta/40 hover:scale-[1.02] transition-all duration-200"
         >
-          📝 Share Feedback
+          Share Feedback
         </a>
       </div>
     </div>
