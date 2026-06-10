@@ -1,121 +1,109 @@
-import { Mic, Shield, Handshake, Zap, Sprout, MessageCircle } from 'lucide-react'
-
 const FORM_URL = 'https://forms.gle/CxZTfRKVWLQJCuHs9'
 
 const PILLARS = [
   {
-    icon: Mic,
+    num: '01',
+    emoji: '🎙️',
     title: 'Listen First',
-    subtitle: 'Pillar 01',
-    description: 'Before I act, I listen. Your experience shapes every decision. No agenda is set until I hear from you.',
     color: '#C85D3D',
-    bg: 'bg-[#C85D3D]/5',
-    border: 'border-[#C85D3D]/20',
-    iconBg: 'bg-[#C85D3D]/10',
+    description:
+      'Before I act, I listen. Your experience shapes every decision I make. No agenda is set until I hear from you.',
   },
   {
-    icon: Shield,
+    num: '02',
+    emoji: '🛡️',
     title: 'Safety & Wellbeing',
-    subtitle: 'Pillar 02',
-    description: 'Every student deserves to feel safe, supported, and cared for on campus — physically and emotionally.',
     color: '#7D8C7E',
-    bg: 'bg-[#7D8C7E]/5',
-    border: 'border-[#7D8C7E]/20',
-    iconBg: 'bg-[#7D8C7E]/10',
+    description:
+      'Every student deserves to feel safe, supported, and cared for on campus — both physically and emotionally.',
   },
   {
-    icon: Handshake,
+    num: '03',
+    emoji: '🤝',
     title: 'Respect & Inclusion',
-    subtitle: 'Pillar 03',
-    description: 'A campus where every voice matters, regardless of background, identity, or circumstance.',
     color: '#6B7B8C',
-    bg: 'bg-[#6B7B8C]/5',
-    border: 'border-[#6B7B8C]/20',
-    iconBg: 'bg-[#6B7B8C]/10',
+    description:
+      'A campus where every voice matters, regardless of background, identity, or circumstance.',
   },
   {
-    icon: Zap,
+    num: '04',
+    emoji: '✊',
     title: 'Action Over Words',
-    subtitle: 'Pillar 04',
-    description: 'I don\'t just talk about change — I work to make it happen. Commitments are followed through.',
     color: '#A84A2E',
-    bg: 'bg-[#A84A2E]/5',
-    border: 'border-[#A84A2E]/20',
-    iconBg: 'bg-[#A84A2E]/10',
+    description:
+      'I don\'t just talk about change — I work to make it happen. Commitments are followed through, not forgotten.',
   },
   {
-    icon: Sprout,
+    num: '05',
+    emoji: '🌱',
     title: 'Growth Together',
-    subtitle: 'Pillar 05',
-    description: 'We grow as a community when we support one another. Student wellbeing is a shared responsibility.',
     color: '#5C7A5E',
-    bg: 'bg-[#5C7A5E]/5',
-    border: 'border-[#5C7A5E]/20',
-    iconBg: 'bg-[#5C7A5E]/10',
+    description:
+      'We grow as a community when we support one another. Student wellbeing is a shared responsibility.',
   },
 ]
 
 export default function PillarsSection() {
   return (
-    <section id="mission" className="py-20 lg:py-28 bg-alabaster">
-      <div className="section-divider" />
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-16 lg:pt-20">
-        <div className="text-center mb-14">
-          <p className="text-xs font-bold uppercase tracking-widest text-terracotta mb-3">
+    <section id="mission" className="bg-alabaster py-24 lg:py-32">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <p className="text-xs tracking-widest uppercase font-medium font-body text-charcoal/50 mb-6">
             Hemanathan SV · Guiding Pillars
           </p>
-          <h2 className="font-heading text-3xl lg:text-4xl font-bold text-charcoal mb-3">
-            My <span className="italic text-terracotta">Ideology</span>
+          <h2 className="font-heading text-4xl lg:text-5xl font-semibold leading-tight text-charcoal mb-4">
+            Hemanathan SV's <span className="italic text-terracotta">Ideology</span>
           </h2>
-          <p className="text-charcoal/60 max-w-2xl mx-auto">
-            Five principles that guide every conversation, decision, and action I take on behalf of
-            students.
+          <p className="font-body text-base lg:text-lg text-charcoal/60 max-w-2xl mx-auto">
+            Five principles that guide every conversation, every decision, and every action
+            Hemanathan SV takes on behalf of students.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {PILLARS.map((pillar) => {
-            const Icon = pillar.icon
-            return (
-              <div
-                key={pillar.subtitle}
-                className={`${pillar.bg} ${pillar.border} border rounded-xl p-6 hover:shadow-md transition-shadow`}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PILLARS.map((pillar) => (
+            <div
+              key={pillar.num}
+              className="rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1"
+              style={{ boxShadow: '0 1px 3px rgba(26,32,44,0.04), 0 1px 2px rgba(26,32,44,0.02)', border: `1px solid ${pillar.color}20`, backgroundColor: `${pillar.color}05` }}
+              onMouseEnter={e => e.currentTarget.style.boxShadow = '0 12px 40px rgba(26,32,44,0.08)'}
+              onMouseLeave={e => e.currentTarget.style.boxShadow = '0 1px 3px rgba(26,32,44,0.04), 0 1px 2px rgba(26,32,44,0.02)'}
+            >
+              <div className="text-3xl mb-4">{pillar.emoji}</div>
+              <p className="text-[11px] uppercase tracking-widest font-body font-medium mb-2" style={{ color: pillar.color }}>
+                Pillar {pillar.num}
+              </p>
+              <h3 className="font-heading text-xl font-semibold text-charcoal mb-3">{pillar.title}</h3>
+              <p className="font-body text-sm text-charcoal/70 leading-relaxed mb-4">{pillar.description}</p>
+              <a
+                href={FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-body font-medium transition-colors duration-200 hover:opacity-80"
+                style={{ color: pillar.color }}
               >
-                <div className={`w-10 h-10 rounded-lg ${pillar.iconBg} flex items-center justify-center mb-4`}>
-                  <Icon size={20} style={{ color: pillar.color }} />
-                </div>
-                <p className="text-[11px] uppercase tracking-widest font-medium mb-1" style={{ color: pillar.color }}>
-                  {pillar.subtitle}
-                </p>
-                <h3 className="font-heading text-lg font-bold text-charcoal mb-2">{pillar.title}</h3>
-                <p className="text-sm text-charcoal/60 leading-relaxed mb-4">{pillar.description}</p>
-                <a
-                  href={FORM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-medium hover:underline inline-flex items-center gap-1"
-                  style={{ color: pillar.color }}
-                >
-                  Share thoughts
-                  <span>→</span>
-                </a>
-              </div>
-            )
-          })}
-
-          <div className="rounded-xl p-6 flex flex-col justify-center bg-gradient-to-br from-terracotta to-terracotta-dark border border-terracotta">
-            <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center mb-4">
-              <MessageCircle size={20} className="text-white" />
+                Share your thoughts on this →
+              </a>
             </div>
-            <p className="text-white font-heading text-lg font-bold mb-1">Have something to add?</p>
-            <p className="text-white/80 text-sm leading-relaxed mb-5">
-              These pillars were shaped by early conversations and evolve with your input.
+          ))}
+
+          <div
+            className="rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-center"
+            style={{ backgroundColor: '#C85D3D', boxShadow: '0 12px 40px rgba(200,93,61,0.15)' }}
+            onMouseEnter={e => e.currentTarget.style.boxShadow = '0 12px 40px rgba(200,93,61,0.25)'}
+            onMouseLeave={e => e.currentTarget.style.boxShadow = '0 12px 40px rgba(200,93,61,0.15)'}
+          >
+            <div className="text-3xl mb-4">💬</div>
+            <p className="text-white font-heading text-xl font-semibold mb-2">Have something to add?</p>
+            <p className="text-white/80 font-body text-sm leading-relaxed mb-6">
+              These pillars were shaped by early conversations with students — and they'll keep
+              evolving with your input.
             </p>
             <a
               href={FORM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex self-start items-center gap-2 rounded-lg bg-white text-terracotta font-bold text-sm min-h-[42px] px-5 py-2 hover:bg-white/90 transition-colors"
+              className="inline-flex self-start items-center gap-2 rounded-full bg-white text-terracotta font-body font-bold text-sm min-h-[44px] px-6 py-3 hover:bg-white/90 transition-all duration-200"
             >
               Share Your Voice
             </a>
